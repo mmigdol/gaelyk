@@ -60,11 +60,11 @@ import org.codehaus.groovy.ast.stmt.ReturnStatement
 import org.codehaus.groovy.ast.expr.MethodCallExpression
 import org.codehaus.groovy.ast.expr.ClassExpression
 import org.codehaus.groovy.ast.expr.TupleExpression
-import com.google.appengine.api.prospectivesearch.ProspectiveSearchService
+// import com.google.appengine.api.prospectivesearch.ProspectiveSearchService
 import com.google.appengine.api.log.LogService
 import com.google.appengine.api.log.LogServiceFactory
-import com.google.appengine.api.search.SearchService
-import com.google.appengine.api.search.SearchServiceFactory
+//import com.google.appengine.api.search.SearchService
+//import com.google.appengine.api.search.SearchServiceFactory
 
 /**
  * This Groovy AST Transformation is a local transformation which is triggered by the Groovy compiler
@@ -99,7 +99,7 @@ class GaelykBindingsTransformation implements ASTTransformation {
         addGetterIfNotExists(parent, FileService,              "getFiles",             FileServiceFactory,         "getFileService")
         addGetterIfNotExists(parent, BackendService,           "getBackends",          BackendServiceFactory,      "getBackendService")
         addGetterIfNotExists(parent, LifecycleManager,         "getLifecycle",         LifecycleManager,           "getInstance")
-        addGetterIfNotExists(parent, ProspectiveSearchService, "getProspectiveSearch", ProspectiveSearchService,   "getProspectiveSearchService")
+//        addGetterIfNotExists(parent, ProspectiveSearchService, "getProspectiveSearch", ProspectiveSearchService,   "getProspectiveSearchService")
         addGetterIfNotExists(parent, User,                     "getUser",              GaelykBindingEnhancer,      "getCurrentUser")
         addGetterIfNotExists(parent, QueueAccessor,            "getQueues",            GaelykBindingEnhancer,      "getQueues")
         addGetterIfNotExists(parent, Boolean,                  "getLocalMode",         GaelykBindingEnhancer,      "getLocalMode")
@@ -107,7 +107,7 @@ class GaelykBindingsTransformation implements ASTTransformation {
         addGetterIfNotExists(parent, LoggerAccessor,           "getLogger",            GaelykBindingEnhancer,      "getLogger")
         addGetterIfNotExists(parent, Class,                    "getNamespace",         GaelykBindingEnhancer,      "getNamespaceManager")
         addGetterIfNotExists(parent, LogService,               "getLogService",        LogServiceFactory,          "getLogService")
-        addGetterIfNotExists(parent, SearchService,            "getSearchService",     SearchServiceFactory,       "getSearchService")
+//        addGetterIfNotExists(parent, SearchService,            "getSearchService",     SearchServiceFactory,       "getSearchService")
     }
 
     private void addGetterIfNotExists(ClassNode parent, Class serviceClass, String getterName, Class factoryClass, String factoryMethodName) {

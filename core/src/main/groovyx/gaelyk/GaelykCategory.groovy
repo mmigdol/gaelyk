@@ -116,15 +116,15 @@ import com.google.appengine.api.backends.BackendService
 import com.google.appengine.api.ThreadManager
 
 import groovy.transform.PackageScope
-import com.google.appengine.api.search.SearchService
-import com.google.appengine.api.search.SearchServiceFactory
-import com.google.appengine.api.search.Index
-import com.google.appengine.api.search.Consistency
-import com.google.appengine.api.search.IndexSpec
-import com.google.appengine.api.search.AddResponse
-import com.google.appengine.api.search.Document
-import com.google.appengine.api.search.Field
-import groovyx.gaelyk.search.DocumentDefinitions
+//import com.google.appengine.api.search.SearchService
+//import com.google.appengine.api.search.SearchServiceFactory
+//import com.google.appengine.api.search.Index
+//import com.google.appengine.api.search.Consistency
+//import com.google.appengine.api.search.IndexSpec
+//import com.google.appengine.api.search.AddResponse
+//import com.google.appengine.api.search.Document
+//import com.google.appengine.api.search.Field
+//import groovyx.gaelyk.search.DocumentDefinitions
 
 /**
  * Category methods decorating the Google App Engine SDK classes
@@ -2743,9 +2743,10 @@ class GaelykCategory extends GaelykCategoryBase {
      * @param namespace the namespace name
      * @return a search service over a specific namespace
      */
-    static SearchService getAt(SearchService search, String namespace) {
-        SearchServiceFactory.getSearchService(namespace)
-    }
+
+    //static SearchService getAt(SearchService search, String namespace) {
+    //    SearchServiceFactory.getSearchService(namespace)
+    //}
 
     /**
      * Shortcut notation to easily get an index from the search service.
@@ -2758,9 +2759,9 @@ class GaelykCategory extends GaelykCategoryBase {
      * @param consistency the consistency
      * @return an index
      */
-    static Index index(SearchService search, String indexName, Consistency consistency) {
-        search.getIndex(IndexSpec.newBuilder().setName(indexName).setConsistency(consistency).build())
-    }
+    //static Index index(SearchService search, String indexName, Consistency consistency) {
+    //    search.getIndex(IndexSpec.newBuilder().setName(indexName).setConsistency(consistency).build())
+   // }
 
     /**
      * Add a new document to the index.
@@ -2789,6 +2790,7 @@ class GaelykCategory extends GaelykCategoryBase {
      * @param closure the closure defining the documents to be added to the index
      * @return an instance of AddResponse
      */
+     /*
     static AddResponse add(Index index, Closure closure) {
         def docDefClosure = (Closure)closure.clone()
         docDefClosure.resolveStrategy = Closure.DELEGATE_FIRST
@@ -2798,6 +2800,7 @@ class GaelykCategory extends GaelykCategoryBase {
 
         index.add(definitions.docs)
     }
+    */
 
     /**
      * Get a document field raw value or list of raw values.
@@ -2811,6 +2814,7 @@ class GaelykCategory extends GaelykCategoryBase {
      * @param fieldName the field name
      * @return a raw value or a list of raw values if the field is multivalued
      */
+     /*
     static Object get(Document document, String fieldName) {
         List<Field> fields = document.getField(fieldName).collect()
 
@@ -2823,7 +2827,9 @@ class GaelykCategory extends GaelykCategoryBase {
                 return fields.collect{ Field field -> getFieldRawValue(field) }
         }
     }
+    */
 
+    /*
     private static getFieldRawValue(Field field) {
         switch(field.getType()) {
             case Field.FieldType.ATOM:   return field.atom
@@ -2833,6 +2839,7 @@ class GaelykCategory extends GaelykCategoryBase {
             case Field.FieldType.TEXT:   return field.text
         }
     }
+    */
 
     // ----------------------------------------------------------------
     // Miscelanous methods

@@ -34,9 +34,9 @@ import com.google.appengine.api.files.FileServiceFactory
 import com.google.appengine.api.backends.BackendServiceFactory
 import com.google.appengine.api.LifecycleManager
 import com.google.appengine.api.users.User
-import com.google.appengine.api.prospectivesearch.ProspectiveSearchServiceFactory
+// import com.google.appengine.api.prospectivesearch.ProspectiveSearchServiceFactory
 import com.google.appengine.api.log.LogServiceFactory
-import com.google.appengine.api.search.SearchServiceFactory
+// import com.google.appengine.api.search.SearchServiceFactory
 import javax.servlet.http.HttpServletRequest
 
 /**
@@ -104,13 +104,13 @@ class GaelykBindingEnhancer {
         binding.setVariable("lifecycle", LifecycleManager.instance)
 
         // Prospective search service in SDK 1.5.4
-        binding.setVariable("prospectiveSearch", ProspectiveSearchServiceFactory.prospectiveSearchService)
+        // binding.setVariable("prospectiveSearch", ProspectiveSearchServiceFactory.prospectiveSearchService)
 
         // Log service in SDK 1.6
         binding.setVariable("logService", LogServiceFactory.logService)
 
         // Search service in SDK 1.6.6
-        binding.setVariable("search", SearchServiceFactory.searchService)
+        // binding.setVariable("search", SearchServiceFactory.searchService)
 
         // Geo headers
         if(binding.hasVariable('request')) {
